@@ -629,49 +629,10 @@ body::after {
 }
 
 /* ==========================================================================
-   Marquee
-   ========================================================================== */
-
-.marquee {
-  overflow: hidden;
-  padding: clamp(16px, 2.2vw, 28px) 0;
-  border-top: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
-
-.marquee-group { display: flex; align-items: center; }
-
-.marquee-group span {
-  font-family: var(--serif);
-  font-size: clamp(36px, 5vw, 80px);
-  line-height: 1;
-  white-space: nowrap;
-  padding-right: 0.32em;
-}
-
-.marquee-group .outline {
-  font-style: italic;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(236, 231, 221, 0.5);
-}
-
-.marquee-group .star {
-  font-family: var(--sans);
-  font-size: clamp(14px, 1.6vw, 24px);
-  color: var(--glow);
-}
-
-/* ==========================================================================
    About
    ========================================================================== */
 
-.about { padding: clamp(72px, 9vw, 128px) var(--gutter); }
+.about { padding: clamp(72px, 9vw, 128px) var(--gutter); border-top: 1px solid var(--faint); }
 
 .about-grid {
   display: grid;

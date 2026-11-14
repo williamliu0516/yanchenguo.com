@@ -12,12 +12,12 @@ python3 -m http.server 8000
 ## 文件结构
 
 ```
-index.html            首页：光影首屏 → 作品网格 → 跑马灯 → About（含设计理念）→ Contact
+index.html            首页：光影首屏 → 作品网格 → About（含设计理念）→ Contact
 work/example.html     作品详情页模板（每个作品复制一份）
 404.html              找不到页面
 assets/css/style.css  全部样式
 assets/js/light.js    首屏 WebGL 光影（鼠标就是光源）
-assets/js/main.js     平滑滚动、揭开动画、视差、光标、卡片倾斜反光、跑马灯、页面切换
+assets/js/main.js     平滑滚动、揭开动画、视差、光标、卡片倾斜反光、页面切换
 assets/js/vendor/     Lenis 平滑滚动库（本地保存，不依赖 CDN）
 assets/img/           放图片
 ```

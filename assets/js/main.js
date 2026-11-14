@@ -94,24 +94,6 @@
     io.observe(watch);
   });
 
-  /* ---------------- Marquee (fills itself, reacts to scroll velocity) ---------------- */
-  const track = document.querySelector('.marquee-track');
-  let mqX = 0, mqW = 0, mqDir = 1;
-  function fillMarquee() {
-    if (!track) return;
-    const group = track.querySelector('.marquee-group');
-    mqW = group.offsetWidth;
-    if (!mqW) return;
-    let guard = 0;
-    while ((track.children.length < 2 || track.scrollWidth < innerWidth + mqW) && guard++ < 20) {
-      const clone = group.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
-    }
-  }
-  fillMarquee();
-  if (document.fonts) document.fonts.ready.then(fillMarquee);
-
   /* ---------------- Cursor ---------------- */
   let cursor = null;
   const cur = { x: innerWidth / 2, y: innerHeight / 2, tx: innerWidth / 2, ty: innerHeight / 2 };
@@ -181,7 +163,7 @@
   const expanders = $$('[data-expand]');
   let vh = innerHeight;
 
-  addEventListener('resize', () => { vh = innerHeight; fillMarquee(); }, { passive: true });
+  addEventListener('resize', () => { vh = innerHeight; }, { passive: true });
 
   function updateScroll() {
     if (!reduce) {
@@ -214,22 +196,9 @@
   }
 
   /* ---------------- Main loop ---------------- */
-  let last = performance.now();
   function frame(now) {
-    const dt = Math.min(64, now - last) / 1000;
-    last = now;
-
     if (lenis) lenis.raf(now);
     updateScroll();
-
-    if (track && mqW && !reduce) {
-      const v = lenis ? lenis.velocity : 0;
-      if (Math.abs(v) > 0.5) mqDir = v > 0 ? 1 : -1;
-      mqX -= (55 + Math.min(Math.abs(v) * 30, 900)) * dt * mqDir;
-      if (mqX <= -mqW) mqX += mqW;
-      if (mqX > 0) mqX -= mqW;
-      track.style.transform = `translate3d(${mqX.toFixed(2)}px, 0, 0) skewX(${clamp(-v * 0.35, -7, 7).toFixed(2)}deg)`;
-    }
 
     if (cursor) {
       cur.x += (cur.tx - cur.x) * 0.22;
