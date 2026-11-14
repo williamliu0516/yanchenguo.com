@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    作品详情页模板。新作品：复制这个文件并改名（比如 work/echo.html），
+    再把首页对应卡片的 href 改成 work/echo.html
+  -->
+  <title>Project One — Yanchen Guo</title>
+  <meta name="description" content="Project One — interactive design by Yanchen Guo.">
+  <meta name="theme-color" content="#0a0a09">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+
+<div class="curtain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="nav-logo" href="../" data-magnetic="0.2">Yanchen Guo</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="../#work" data-magnetic="0.3"><span>01</span>Work</a>
+    <a href="../#about" data-magnetic="0.3"><span>02</span>About</a>
+    <a href="../#contact" data-magnetic="0.3"><span>03</span>Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="p-hero">
+    <p class="mono p-kicker" data-reveal style="--d:.3s">Project 01 &nbsp;/&nbsp; 2026</p>
+    <h1 class="p-title" data-split style="--d:.4s">Project <em>One</em></h1>
+
+    <div class="p-intro">
+      <!-- TODO(内容): 2–3 句话概括这个项目 -->
+      <p class="p-summary" data-reveal style="--d:.9s">[Placeholder] Two or three sentences on what this project is, the question behind it, and what a person experiences when they interact with it.</p>
+    </div>
+
+    <!-- TODO(内容): 项目信息，不需要的整组 <div> 删掉 -->
+    <dl class="p-facts mono">
+      <div data-reveal style="--d:1s"><dt>Year</dt><dd>2026</dd></div>
+      <div data-reveal style="--d:1.05s"><dt>Role</dt><dd>[Role]</dd></div>
+      <div data-reveal style="--d:1.1s"><dt>Medium</dt><dd>[Installation / App / Web]</dd></div>
+      <div data-reveal style="--d:1.15s"><dt>Tools</dt><dd>[Tools]</dd></div>
+    </dl>
+  </section>
+
+  <!-- 主视觉：滚动时从带圆角的内嵌框展开成全屏。可以放图片或视频：
+       <img class="art" src="../assets/img/xxx.jpg" alt="…">
+       <video class="art" src="../assets/video/xxx.mp4" autoplay muted loop playsinline></video> -->
+  <div class="p-cover" data-expand>
+    <div class="parallax" data-parallax="0.12"><div class="art art-1"></div></div>
+    <span class="ph-tag mono">Hero image / video placeholder · full screen</span>
+  </div>
+
+  <section class="p-section">
+    <p class="mono label" data-reveal>Overview</p>
+    <div class="p-prose">
+      <!-- TODO(内容): 背景 / 问题 / 思路 -->
+      <p data-reveal>[Placeholder] The context — what prompted the work and the question it set out to answer.</p>
+      <p data-reveal>[Placeholder] The idea — how the interaction works, and why it feels the way it does.</p>
+    </div>
+  </section>
+
+  <!-- 图片组：full = 通栏 16:9，half-l / half-r = 左右错落 4:5，mid = 居中 -->
+  <section class="p-gallery">
+    <figure class="p-figure">
+      <div class="frame" data-reveal="clip"><div class="parallax" data-parallax="0.1"><div class="art art-2"></div></div><span class="ph-tag mono">Image · 16:9</span></div>
+      <figcaption class="mono">[Caption — process / prototype]</figcaption>
+    </figure>
+
+    <figure class="p-figure half-l">
+      <div class="frame" data-reveal="clip"><div class="parallax" data-parallax="0.1"><div class="art art-3"></div></div><span class="ph-tag mono">Image · 4:5</span></div>
+      <figcaption class="mono">[Caption]</figcaption>
+    </figure>
+
+    <figure class="p-figure half-r">
+      <div class="frame" data-reveal="clip"><div class="parallax" data-parallax="0.1"><div class="art art-4"></div></div><span class="ph-tag mono">Image · 4:5</span></div>
+      <figcaption class="mono">[Caption]</figcaption>
+    </figure>
+  </section>
+
+  <section class="p-section">
+    <p class="mono label" data-reveal>Outcome</p>
+    <div class="p-prose">
+      <p data-reveal>[Placeholder] What happened — testing, reactions, what she learned, where it was shown.</p>
+    </div>
+  </section>
+
+  <section class="p-gallery">
+    <figure class="p-figure mid">
+      <div class="frame" data-reveal="clip"><div class="parallax" data-parallax="0.1"><div class="art art-1"></div></div><span class="ph-tag mono">Image · 16:9</span></div>
+      <figcaption class="mono">[Caption]</figcaption>
+    </figure>
+  </section>
+
+  <!-- 下一个作品 -->
+  <a class="p-next" href="example.html" data-cursor="Next">
+    <div class="bg"><div class="art art-2"></div></div>
+    <span class="mono">Next project</span>
+    <h2>Project Two</h2>
+  </a>
+
+</main>
+
+<footer class="footer mono">
+  <span>© <span data-year>2026</span> Yanchen Guo</span>
+  <a href="../#work">← All work</a>
+  <a href="#top" data-magnetic="0.3">Back to top ↑</a>
+</footer>
+
+</body>
+</html>

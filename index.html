@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yanchen Guo — Interactive Design</title>
+  <!-- TODO(内容): 一句话介绍，用于搜索结果和分享卡片 -->
+  <meta name="description" content="Yanchen Guo — interactive design portfolio.">
+  <meta name="theme-color" content="#0a0a09">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yanchen Guo — Interactive Design">
+  <meta property="og:description" content="Yanchen Guo — interactive design portfolio.">
+  <meta property="og:url" content="https://yanchenguo.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/light.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<div class="curtain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="nav-logo" href="./" data-magnetic="0.2">Yanchen Guo</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#work" data-magnetic="0.3"><span>01</span>Work</a>
+    <a href="#about" data-magnetic="0.3"><span>02</span>About</a>
+    <a href="#contact" data-magnetic="0.3"><span>03</span>Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ Hero: the light follows the cursor ============ -->
+  <section class="hero" id="top">
+    <canvas class="hero-light" data-light aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-top">
+        <p class="mono" data-reveal style="--d:.9s">Interactive Design<br><span class="dim">Portfolio — 2026</span></p>
+        <p class="mono hero-readout" data-reveal style="--d:1s">
+          Light <span data-light-readout>x 0.50 · y 0.50</span><br>
+          <span class="dim touch-hide">Move your cursor</span>
+        </p>
+      </div>
+
+      <h1 class="hero-title" data-split style="--d:.35s">Yanchen<br><em>Guo</em></h1>
+
+      <div class="hero-bottom">
+        <!-- TODO(内容): 一句话介绍 -->
+        <p class="hero-intro" data-reveal style="--d:1.15s">[Placeholder] One line on what she designs, and for whom.</p>
+        <a class="scroll-cue mono" href="#work" data-reveal style="--d:1.25s"><span class="cue-line"></span>Scroll</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Statement: words light up while scrolling ============ -->
+  <section class="statement" aria-label="Statement">
+    <p class="mono label" data-reveal>(Statement — placeholder)</p>
+    <!-- TODO(内容): 换成她自己的一句话设计理念，长度差不多就好 -->
+    <p class="statement-text" data-scrub>I design interactions the way light behaves on a surface — quiet until someone arrives, then precise, responsive, and a little bit surprising.</p>
+  </section>
+
+  <!-- ============ Selected work ============ -->
+  <!--
+    每个作品是一个 <article class="work-item">。版式按 4 个一组自动循环：
+      第 1 个通栏 16:9 / 第 2 个偏左 4:3 / 第 3 个偏右竖图 3:4 / 第 4 个居中 16:10
+    换封面：把 <div class="art art-1"></div> 换成
+      <img class="art" src="assets/img/封面.jpg" alt="作品名" loading="lazy">
+    然后删掉 <span class="ph-tag">…</span>
+  -->
+  <section class="work" id="work">
+    <header class="section-head">
+      <h2 class="section-title" data-split>Selected <em>Work</em></h2>
+      <p class="mono section-count" data-reveal>(04) &nbsp;2024 — 2026</p>
+    </header>
+
+    <div class="work-list">
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt>
+            <div class="parallax" data-parallax="0.08"><div class="art art-1"></div></div>
+            <span class="ph-tag mono">Cover placeholder · 16:9</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">01</span>
+            <h3 class="work-title">Project One</h3>
+            <span class="mono work-tags">Category · Medium</span>
+            <span class="mono work-year">2026</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt>
+            <div class="parallax" data-parallax="0.1"><div class="art art-2"></div></div>
+            <span class="ph-tag mono">Cover placeholder · 4:3</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">02</span>
+            <h3 class="work-title">Project Two</h3>
+            <span class="mono work-tags">Category · Medium</span>
+            <span class="mono work-year">2025</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt>
+            <div class="parallax" data-parallax="0.12"><div class="art art-3"></div></div>
+            <span class="ph-tag mono">Cover placeholder · 3:4</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">03</span>
+            <h3 class="work-title">Project Three</h3>
+            <span class="mono work-tags">Category · Medium</span>
+            <span class="mono work-year">2025</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt>
+            <div class="parallax" data-parallax="0.08"><div class="art art-4"></div></div>
+            <span class="ph-tag mono">Cover placeholder · 16:10</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">04</span>
+            <h3 class="work-title">Project Four</h3>
+            <span class="mono work-tags">Category · Medium</span>
+            <span class="mono work-year">2024</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ Marquee ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Interactive</span><span class="outline">Design</span><span class="star">✦</span>
+        <span>Yanchen Guo</span><span class="outline">Portfolio</span><span class="star">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ About ============ -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <!-- TODO(内容): 头像/工作照，换成 <img class="art" src="assets/img/portrait.jpg" alt="Yanchen Guo"> -->
+      <div class="about-portrait" data-reveal="clip">
+        <div class="parallax" data-parallax="0.1"><div class="art art-portrait"></div></div>
+        <span class="ph-tag mono">Portrait placeholder · 4:5</span>
+      </div>
+
+      <div class="about-body">
+        <p class="mono label" data-reveal>About</p>
+        <!-- TODO(内容): 个人简介 -->
+        <p class="about-lead" data-reveal>[Placeholder] A few sentences about who she is, where she comes from, and what draws her to interactive design.</p>
+
+        <!-- TODO(内容): 不需要的整行 <div> 删掉 -->
+        <dl class="about-list">
+          <div data-reveal><dt class="mono">Education</dt><dd>[Program] — [School], [Year]</dd></div>
+          <div data-reveal><dt class="mono">Experience</dt><dd>[Studio / Company] — [Role], [Year]</dd></div>
+          <div data-reveal><dt class="mono">Recognition</dt><dd>[Award / Exhibition], [Year]</dd></div>
+          <div data-reveal><dt class="mono">Tools</dt><dd>[Figma, TouchDesigner, p5.js, Unity …]</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="contact" id="contact">
+    <p class="mono label" data-reveal>Contact</p>
+    <h2 class="contact-title" data-split>Let’s make<br><em>something</em> move.</h2>
+    <div class="contact-row">
+      <!-- TODO(内容): 换成真实邮箱（href 和文字都要改） -->
+      <a class="contact-email" href="mailto:hello@yanchenguo.com" data-reveal>hello@yanchenguo.com <span class="arrow">↗</span></a>
+      <!-- TODO(内容): 换成真实链接，不需要的整行 <li> 删掉 -->
+      <ul class="contact-social mono" data-reveal style="--d:.1s">
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer mono">
+  <span>© <span data-year>2026</span> Yanchen Guo</span>
+  <span class="dim">Interactive Design Portfolio</span>
+  <a href="#top" data-magnetic="0.3">Back to top ↑</a>
+</footer>
+
+</body>
+</html>
