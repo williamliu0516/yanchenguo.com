@@ -54,35 +54,28 @@
         </p>
       </div>
 
-      <h1 class="hero-title" data-split style="--d:.35s">Yanchen<br><em>Guo</em></h1>
-
       <div class="hero-bottom">
-        <!-- TODO(内容): 一句话介绍 -->
-        <p class="hero-intro" data-reveal style="--d:1.15s">[Placeholder] One line on what she designs, and for whom.</p>
-        <a class="scroll-cue mono" href="#work" data-reveal style="--d:1.25s"><span class="cue-line"></span>Scroll</a>
+        <h1 class="hero-title" data-split style="--d:.35s">Yanchen <em>Guo</em></h1>
+        <div class="hero-side">
+          <!-- TODO(内容): 一句话介绍 -->
+          <p class="hero-intro" data-reveal style="--d:1.15s">[Placeholder] One line on what she designs, and for whom.</p>
+          <a class="scroll-cue mono" href="#work" data-reveal style="--d:1.25s"><span class="cue-line"></span>View work</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Statement: words light up while scrolling ============ -->
-  <section class="statement" aria-label="Statement">
-    <p class="mono label" data-reveal>(Statement — placeholder)</p>
-    <!-- TODO(内容): 换成她自己的一句话设计理念，长度差不多就好 -->
-    <p class="statement-text" data-scrub>I design interactions the way light behaves on a surface — quiet until someone arrives, then precise, responsive, and a little bit surprising.</p>
-  </section>
-
   <!-- ============ Selected work ============ -->
   <!--
-    每个作品是一个 <article class="work-item">。版式按 4 个一组自动循环：
-      第 1 个通栏 16:9 / 第 2 个偏左 4:3 / 第 3 个偏右竖图 3:4 / 第 4 个居中 16:10
-    换封面：把 <div class="art art-1"></div> 换成
+    每个作品是一个 <article class="work-item">，网格自动排：桌面 3 列 / 平板 2 列 / 手机 1 列。
+    封面统一 4:3。换封面：把 <div class="art art-1"></div> 换成
       <img class="art" src="assets/img/封面.jpg" alt="作品名" loading="lazy">
-    然后删掉 <span class="ph-tag">…</span>
+    然后删掉 <span class="ph-tag">…</span>。加作品就复制一整个 <article>，删作品就删掉一整个。
   -->
   <section class="work" id="work">
     <header class="section-head">
       <h2 class="section-title" data-split>Selected <em>Work</em></h2>
-      <p class="mono section-count" data-reveal>(04) &nbsp;2024 — 2026</p>
+      <p class="mono section-count" data-reveal>(06) &nbsp;2024 — 2026</p>
     </header>
 
     <div class="work-list">
@@ -90,44 +83,44 @@
       <article class="work-item">
         <a class="work-link" href="work/example.html" data-cursor="View">
           <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.08"><div class="art art-1"></div></div>
-            <span class="ph-tag mono">Cover placeholder · 16:9</span>
+            <div class="parallax" data-parallax="0.06"><div class="art art-1"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
           </div>
           <div class="work-caption">
             <span class="mono work-no">01</span>
             <h3 class="work-title">Project One</h3>
-            <span class="mono work-tags">Category · Medium</span>
             <span class="mono work-year">2026</span>
+            <span class="mono work-tags">Category · Medium</span>
           </div>
         </a>
       </article>
 
       <article class="work-item">
         <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.1"><div class="art art-2"></div></div>
-            <span class="ph-tag mono">Cover placeholder · 4:3</span>
+          <div class="work-media" data-reveal="clip" data-tilt style="--d:.08s">
+            <div class="parallax" data-parallax="0.06"><div class="art art-2"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
           </div>
           <div class="work-caption">
             <span class="mono work-no">02</span>
             <h3 class="work-title">Project Two</h3>
+            <span class="mono work-year">2026</span>
             <span class="mono work-tags">Category · Medium</span>
-            <span class="mono work-year">2025</span>
           </div>
         </a>
       </article>
 
       <article class="work-item">
         <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.12"><div class="art art-3"></div></div>
-            <span class="ph-tag mono">Cover placeholder · 3:4</span>
+          <div class="work-media" data-reveal="clip" data-tilt style="--d:.16s">
+            <div class="parallax" data-parallax="0.06"><div class="art art-3"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
           </div>
           <div class="work-caption">
             <span class="mono work-no">03</span>
             <h3 class="work-title">Project Three</h3>
-            <span class="mono work-tags">Category · Medium</span>
             <span class="mono work-year">2025</span>
+            <span class="mono work-tags">Category · Medium</span>
           </div>
         </a>
       </article>
@@ -135,14 +128,44 @@
       <article class="work-item">
         <a class="work-link" href="work/example.html" data-cursor="View">
           <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.08"><div class="art art-4"></div></div>
-            <span class="ph-tag mono">Cover placeholder · 16:10</span>
+            <div class="parallax" data-parallax="0.06"><div class="art art-4"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
           </div>
           <div class="work-caption">
             <span class="mono work-no">04</span>
             <h3 class="work-title">Project Four</h3>
+            <span class="mono work-year">2025</span>
             <span class="mono work-tags">Category · Medium</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt style="--d:.08s">
+            <div class="parallax" data-parallax="0.06"><div class="art art-portrait"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">05</span>
+            <h3 class="work-title">Project Five</h3>
             <span class="mono work-year">2024</span>
+            <span class="mono work-tags">Category · Medium</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-item">
+        <a class="work-link" href="work/example.html" data-cursor="View">
+          <div class="work-media" data-reveal="clip" data-tilt style="--d:.16s">
+            <div class="parallax" data-parallax="0.06"><div class="art art-2 art-alt"></div></div>
+            <span class="ph-tag mono">Cover · 4:3</span>
+          </div>
+          <div class="work-caption">
+            <span class="mono work-no">06</span>
+            <h3 class="work-title">Project Six</h3>
+            <span class="mono work-year">2024</span>
+            <span class="mono work-tags">Category · Medium</span>
           </div>
         </a>
       </article>
@@ -165,14 +188,16 @@
     <div class="about-grid">
       <!-- TODO(内容): 头像/工作照，换成 <img class="art" src="assets/img/portrait.jpg" alt="Yanchen Guo"> -->
       <div class="about-portrait" data-reveal="clip">
-        <div class="parallax" data-parallax="0.1"><div class="art art-portrait"></div></div>
-        <span class="ph-tag mono">Portrait placeholder · 4:5</span>
+        <div class="parallax" data-parallax="0.08"><div class="art art-portrait"></div></div>
+        <span class="ph-tag mono">Portrait · 4:5</span>
       </div>
 
       <div class="about-body">
         <p class="mono label" data-reveal>About</p>
+        <!-- TODO(内容): 她的设计理念，一两句话（滚动时会逐词点亮） -->
+        <p class="about-lead" data-scrub>I design interactions the way light behaves on a surface — quiet until someone arrives, then precise, responsive, and a little bit surprising.</p>
         <!-- TODO(内容): 个人简介 -->
-        <p class="about-lead" data-reveal>[Placeholder] A few sentences about who she is, where she comes from, and what draws her to interactive design.</p>
+        <p class="about-bio" data-reveal>[Placeholder] A few sentences about who she is, where she comes from, and what draws her to interactive design.</p>
 
         <!-- TODO(内容): 不需要的整行 <div> 删掉 -->
         <dl class="about-list">
@@ -188,7 +213,7 @@
   <!-- ============ Contact ============ -->
   <section class="contact" id="contact">
     <p class="mono label" data-reveal>Contact</p>
-    <h2 class="contact-title" data-split>Let’s make<br><em>something</em> move.</h2>
+    <h2 class="contact-title" data-split>Let’s make <em>something</em> move.</h2>
     <div class="contact-row">
       <!-- TODO(内容): 换成真实邮箱（href 和文字都要改） -->
       <a class="contact-email" href="mailto:hello@yanchenguo.com" data-reveal>hello@yanchenguo.com <span class="arrow">↗</span></a>

@@ -12,7 +12,7 @@ python3 -m http.server 8000
 ## 文件结构
 
 ```
-index.html            首页：光影首屏 → 宣言 → 作品 → 跑马灯 → About → Contact
+index.html            首页：光影首屏 → 作品网格 → 跑马灯 → About（含设计理念）→ Contact
 work/example.html     作品详情页模板（每个作品复制一份）
 404.html              找不到页面
 assets/css/style.css  全部样式
@@ -32,14 +32,7 @@ grep -rn "TODO(内容)\|\[Placeholder\]\|placeholder" index.html work/
 
 ### 作品封面
 
-首页每个作品是一个 `<article class="work-item">`，版式按 4 个一组循环：
-
-| 位置 | 版式 | 封面比例 |
-|---|---|---|
-| 第 1 个 | 通栏 | 16:9 |
-| 第 2 个 | 偏左 | 4:3 |
-| 第 3 个 | 偏右、下沉 | 3:4 竖图 |
-| 第 4 个 | 居中 | 16:10 |
+首页作品是网格：桌面 3 列、平板 2 列、手机 1 列，封面统一 **4:3**。每个作品是一个 `<article class="work-item">`，加作品复制一整个，删作品删一整个，记得改左上角的数量 `(06)`。
 
 换封面：把 `<div class="art art-1"></div>` 换成
 
@@ -64,7 +57,7 @@ grep -rn "TODO(内容)\|\[Placeholder\]\|placeholder" index.html work/
 
 ### 图片建议
 
-- 通栏图 2400px 宽，其它 1600px 宽
+- 首页封面 1200×900（4:3）；详情页通栏图 2400px 宽，其它 1600px 宽
 - JPG 或 WebP，质量 80 左右，每张尽量 < 500 KB
 - 视频 MP4 (H.264)，静音，尽量 < 8 MB
 
