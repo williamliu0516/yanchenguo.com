@@ -12,54 +12,49 @@ python3 -m http.server 8000
 ## 文件结构
 
 ```
-index.html            首页：光影首屏 → 作品网格 → About（含设计理念）→ Contact
-work/example.html     作品详情页模板（每个作品复制一份）
-404.html              找不到页面
-assets/css/style.css  全部样式
-assets/js/light.js    首屏 WebGL 光影（鼠标就是光源）
-assets/js/main.js     平滑滚动、揭开动画、视差、光标、卡片倾斜反光、页面切换
-assets/js/vendor/     Lenis 平滑滚动库（本地保存，不依赖 CDN）
-assets/img/           放图片
+index.html                    首页：光影首屏 → 作品网格 → About → Contact
+work/invisible-violence.html  作品 01（暗棕主题）
+work/pica.html                作品 02（浅紫主题）
+work/disease-museum.html      作品 03（深蓝主题）
+work/afterdream.html          作品 04（浅紫 + 夜蓝主题，没有视频）
+work/example.html             旧的详情页模板（新作品建议直接复制上面任意一页）
+404.html                      找不到页面
+assets/css/style.css          全部样式；作品页主题在 “Project pages” 一节（.theme-iv / .theme-dm / .theme-pica / .theme-ad）
+assets/js/light.js            首屏 WebGL 光影
+assets/js/main.js             平滑滚动、揭开动画、视差、光标、页面切换、作品页放大查看器
+assets/img/<作品>/            每个作品一个文件夹
 ```
+
+## 作品页的图片
+
+作品集 board 原图是左右两页的 spread（6912×2112），已经从中间切开成单页，按顺序一页接一页排：
+
+- `01.webp` … `08.webp`：网页显示用，1800px 宽
+- `01-xl.webp` …：原尺寸 3456px 宽，高清屏和点击放大时用（Invisible Violence 的 01、02 原图只有一半分辨率，所以没有 -xl）
+- `cover.webp`：首页封面，4:3，从第一页裁出来的
+
+点击任意一页会打开放大查看器：再点图片放大到能看清小字（可拖动/滚动），← → 翻页，Esc 关闭。
 
 ## 换成真实内容
 
-所有要换的地方都标了 `TODO(内容)`：
+还没填的地方标了 `TODO(内容)`：
 
 ```sh
 grep -rn "TODO(内容)\|\[Placeholder\]\|placeholder" index.html work/
 ```
 
-### 作品封面
+### 加第 4 个作品
 
-首页作品是网格：桌面 3 列、平板 2 列、手机 1 列，封面统一 **4:3**。每个作品是一个 `<article class="work-item">`，加作品复制一整个，删作品删一整个，记得改左上角的数量 `(06)`。
-
-换封面：把 `<div class="art art-1"></div>` 换成
-
-```html
-<img class="art" src="assets/img/project-one.jpg" alt="Project One" loading="lazy">
-```
-
-然后删掉同一张卡片里的 `<span class="ph-tag">…</span>`。
-
-### 作品详情页
-
-1. 复制 `work/example.html`，改名，比如 `work/echo.html`
-2. 改标题、简介、项目信息、图片
-3. 首页对应卡片的 `href` 改成 `work/echo.html`
-4. 详情页底部的 “Next project” 指向下一个作品
-
-详情页里的图片路径要带 `../`，例如 `../assets/img/echo-01.jpg`。主视觉也可以用视频：
-
-```html
-<video class="art" src="../assets/video/echo.mp4" autoplay muted loop playsinline></video>
-```
+1. 新建 `assets/img/<作品名>/`，放 `01.webp`、`01-xl.webp`…和 `cover.webp`
+2. 复制一个现成作品页（比如 `work/pica.html`），改名、改文字、改图片路径，`<body class="project theme-…">` 选一个主题或在 CSS 里加一个新主题
+3. 首页把 `work-item--soon` 那一块换成和前三个一样的卡片
+4. 改上一个作品页底部 “Next project” 的链接
 
 ### 图片建议
 
-- 首页封面 1200×900（4:3）；详情页通栏图 2400px 宽，其它 1600px 宽
-- JPG 或 WebP，质量 80 左右，每张尽量 < 500 KB
-- 视频 MP4 (H.264)，静音，尽量 < 8 MB
+- 首页封面 1200×900（4:3）
+- 作品页单页 1800px 宽 + 原尺寸 -xl 一份
+- 转换：`cwebp -q 82 -resize 1800 0 page.png -o 01.webp`
 
 ## 发布
 

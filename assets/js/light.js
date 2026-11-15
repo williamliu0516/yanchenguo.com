@@ -146,10 +146,12 @@
   const u = {};
   ['uRes', 'uTime', 'uLight', 'uEnergy', 'uIntro'].forEach(n => { u[n] = gl.getUniformLocation(prog, n); });
 
-  // Render below native resolution — the image is soft, and it saves battery.
+  // Render well below native resolution: the image is soft anyway, and the
+  // shader is the heaviest thing on the page. Capped so big screens stay cheap.
   let w = 0, h = 0;
   function resize() {
-    const scale = Math.min(Math.max((window.devicePixelRatio || 1) * 0.55, 0.5), 1);
+    const r0 = canvas.getBoundingClientRect();
+    const scale = Math.min(0.42, 640 / Math.max(1, r0.width));
     const r = canvas.getBoundingClientRect();
     w = Math.max(1, Math.round(r.width * scale));
     h = Math.max(1, Math.round(r.height * scale));
@@ -181,15 +183,12 @@
     lastMove = performance.now();
   }, { passive: true });
 
-  const readout = document.querySelector('[data-light-readout]');
-
   let visible = true;
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) kick(); }).observe(canvas);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
 
   const t0 = performance.now();
   let raf = 0;
-  let frame = 0;
 
   function draw(now) {
     raf = 0;
@@ -215,12 +214,6 @@
     gl.uniform1f(u.uEnergy, light.energy);
     gl.uniform1f(u.uIntro, eased);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
-
-    if (readout && (frame++ % 4 === 0)) {
-      const nx = (light.x / (w / h) + 0.5).toFixed(2);
-      const ny = (0.5 - light.y).toFixed(2);
-      readout.textContent = `x ${nx} · y ${ny}`;
-    }
 
     if (visible && !document.hidden && (!reduce || now - lastMove < 1500)) kick();
   }

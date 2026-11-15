@@ -23,8 +23,8 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/light.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -48,10 +48,6 @@
     <div class="hero-inner">
       <div class="hero-top">
         <p class="mono" data-reveal style="--d:.9s">Interactive Design<br><span class="dim">Portfolio — 2026</span></p>
-        <p class="mono hero-readout" data-reveal style="--d:1s">
-          Light <span data-light-readout>x 0.50 · y 0.50</span><br>
-          <span class="dim touch-hide">Move your cursor</span>
-        </p>
       </div>
 
       <div class="hero-bottom">
@@ -67,109 +63,72 @@
 
   <!-- ============ Selected work ============ -->
   <!--
-    每个作品是一个 <article class="work-item">，网格自动排：桌面 3 列 / 平板 2 列 / 手机 1 列。
-    封面统一 4:3。换封面：把 <div class="art art-1"></div> 换成
-      <img class="art" src="assets/img/封面.jpg" alt="作品名" loading="lazy">
-    然后删掉 <span class="ph-tag">…</span>。加作品就复制一整个 <article>，删作品就删掉一整个。
+    每个作品是一个 <article class="work-item">。桌面是错落的两列（左列 01、03，右列 02、04，右列整体下移一点），
+    手机是一列，靠 style 里的 order 排回 01→04。封面不裁切：work-media 的 aspect-ratio 写成图片自己的宽高。
+    style="--accent:…" 是鼠标悬停时封面上光的颜色，取自作品自己的主色。
+    新作品：复制一个 work-item，改链接、封面、编号和标签。
   -->
   <section class="work" id="work">
     <header class="section-head">
       <h2 class="section-title" data-split>Selected <em>Work</em></h2>
-      <p class="mono section-count" data-reveal>(06) &nbsp;2024 — 2026</p>
+      <p class="mono section-count" data-reveal>(04)</p>
     </header>
 
     <div class="work-list">
+      <div class="work-col">
+        <article class="work-item" data-reveal style="--accent:255, 214, 170; order:1">
+          <a class="work-link" href="work/invisible-violence.html" data-cursor="View">
+            <div class="work-media" data-tilt style="aspect-ratio:1100 / 1549">
+              <img class="art" src="assets/img/invisible-violence/cover.webp" alt="Invisible Violence" width="1100" height="1549" loading="lazy" decoding="async">
+            </div>
+            <div class="work-caption">
+              <span class="mono work-no">01</span>
+              <h3 class="work-title">Invisible Violence</h3>
+              <span class="mono work-tags">Interactive installation · Kinetic sculpture</span>
+            </div>
+          </a>
+        </article>
 
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.06"><div class="art art-1"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">01</span>
-            <h3 class="work-title">Project One</h3>
-            <span class="mono work-year">2026</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
+        <article class="work-item" data-reveal style="--accent:110, 140, 255; order:3">
+          <a class="work-link" href="work/disease-museum.html" data-cursor="View">
+            <div class="work-media" data-tilt style="aspect-ratio:1672 / 941">
+              <img class="art" src="assets/img/disease-museum/cover.webp" alt="Disease Museum" width="1672" height="941" loading="lazy" decoding="async">
+            </div>
+            <div class="work-caption">
+              <span class="mono work-no">03</span>
+              <h3 class="work-title">Disease Museum</h3>
+              <span class="mono work-tags">VR experience · Unity</span>
+            </div>
+          </a>
+        </article>
+      </div>
+      <div class="work-col">
+        <article class="work-item" data-reveal style="--accent:214, 190, 255; order:2">
+          <a class="work-link" href="work/pica.html" data-cursor="View">
+            <div class="work-media" data-tilt style="aspect-ratio:1400 / 788">
+              <img class="art" src="assets/img/pica/cover.webp" alt="PICA" width="1400" height="788" loading="lazy" decoding="async">
+            </div>
+            <div class="work-caption">
+              <span class="mono work-no">02</span>
+              <h3 class="work-title">PICA</h3>
+              <span class="mono work-tags">3D parkour game · Unity</span>
+            </div>
+          </a>
+        </article>
 
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt style="--d:.08s">
-            <div class="parallax" data-parallax="0.06"><div class="art art-2"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">02</span>
-            <h3 class="work-title">Project Two</h3>
-            <span class="mono work-year">2026</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt style="--d:.16s">
-            <div class="parallax" data-parallax="0.06"><div class="art art-3"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">03</span>
-            <h3 class="work-title">Project Three</h3>
-            <span class="mono work-year">2025</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt>
-            <div class="parallax" data-parallax="0.06"><div class="art art-4"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">04</span>
-            <h3 class="work-title">Project Four</h3>
-            <span class="mono work-year">2025</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt style="--d:.08s">
-            <div class="parallax" data-parallax="0.06"><div class="art art-portrait"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">05</span>
-            <h3 class="work-title">Project Five</h3>
-            <span class="mono work-year">2024</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item">
-        <a class="work-link" href="work/example.html" data-cursor="View">
-          <div class="work-media" data-reveal="clip" data-tilt style="--d:.16s">
-            <div class="parallax" data-parallax="0.06"><div class="art art-2 art-alt"></div></div>
-            <span class="ph-tag mono">Cover · 4:3</span>
-          </div>
-          <div class="work-caption">
-            <span class="mono work-no">06</span>
-            <h3 class="work-title">Project Six</h3>
-            <span class="mono work-year">2024</span>
-            <span class="mono work-tags">Category · Medium</span>
-          </div>
-        </a>
-      </article>
-
+        <article class="work-item" data-reveal style="--accent:200, 180, 255; order:4">
+          <a class="work-link" href="work/afterdream.html" data-cursor="View">
+            <div class="work-media" data-tilt style="aspect-ratio:1100 / 1372">
+              <img class="art" src="assets/img/afterdream/cover.webp" alt="AfterDream" width="1100" height="1372" loading="lazy" decoding="async">
+            </div>
+            <div class="work-caption">
+              <span class="mono work-no">04</span>
+              <h3 class="work-title">AfterDream</h3>
+              <span class="mono work-tags">Product design · Dream recorder &amp; app</span>
+            </div>
+          </a>
+        </article>
+      </div>
     </div>
   </section>
 

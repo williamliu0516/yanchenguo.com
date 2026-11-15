@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease Museum — Yanchen Guo</title>
+  <meta name="description" content="Disease Museum — a speculative VR experience by Yanchen Guo across the Black Death, HIV/AIDS and a fictional future illness, CAS.">
+  <meta name="theme-color" content="#070a22">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Disease Museum — Yanchen Guo">
+  <meta property="og:description" content="Explore three eras, make choices and inherit family rules.">
+  <meta property="og:image" content="https://yanchenguo.com/assets/img/disease-museum/cover.webp">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Space+Grotesk:wght@400;500;700&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="project theme-dm">
+
+<div class="curtain" aria-hidden="true"></div>
+<div class="pj-progress" aria-hidden="true"><span data-progress></span></div>
+
+<header class="nav">
+  <a class="nav-logo" href="../" data-magnetic="0.2">Yanchen Guo</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="../#work" data-magnetic="0.3"><span>01</span>Work</a>
+    <a href="../#about" data-magnetic="0.3"><span>02</span>About</a>
+    <a href="../#contact" data-magnetic="0.3"><span>03</span>Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 首屏：游戏画面往下渐隐进深蓝底色 -->
+  <section class="pc-hero">
+    <div class="pc-hero-media" aria-hidden="true">
+      <div class="parallax" data-parallax="0.12"><img class="art" src="../assets/img/disease-museum/medbay.webp" width="1672" height="941" alt="" fetchpriority="high"></div>
+    </div>
+
+    <div class="pc-hero-inner">
+      <p class="mono pj-kicker" data-reveal style="--d:.3s">Project 03 &nbsp;/&nbsp; Speculative VR experience</p>
+      <h1 class="pj-title" data-split style="--d:.4s">Disease <em>Museum</em></h1>
+
+      <div class="pj-intro">
+        <p class="pj-lede" data-reveal style="--d:.8s">What will you leave for the next generation?</p>
+        <p class="pj-summary" data-reveal style="--d:.9s">Disease Museum is a speculative VR experience across the Black Death, HIV/AIDS and a fictional future illness, CAS. Three imagined generations face three different diseases. Each crisis choice becomes a Family Rule and leaves an object the next generation inherits. A disease may disappear, but the choices and behaviors created by it can continue across generations.</p>
+      </div>
+
+      <dl class="pj-facts mono">
+        <div data-reveal style="--d:1s"><dt>Format</dt><dd>VR experience</dd></div>
+        <div data-reveal style="--d:1.05s"><dt>Tools</dt><dd>Unity · VR</dd></div>
+        <div data-reveal style="--d:1.1s"><dt>Eras</dt><dd>Black Death · HIV/AIDS · Future CAS</dd></div>
+        <div data-reveal style="--d:1.15s"><dt>Theme</dt><dd>Inherited choices</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 三个展厅入口：门的抠图 + 三个时代 -->
+  <section class="dm-eras" aria-label="Three eras">
+    <div class="dm-eras-media" data-reveal>
+      <img src="../assets/img/disease-museum/portals.webp" width="1800" height="913" alt="Three archive entrances: a wooden cottage door, a doorway in a flowering bush, and a glowing futuristic gate" loading="lazy" decoding="async">
+    </div>
+    <ol class="dm-eras-list mono">
+      <li data-reveal><span>Gen 01</span>Black Death · Fear &amp; Care</li>
+      <li data-reveal style="--d:.08s"><span>Gen 02</span>HIV/AIDS · Stigma &amp; Solidarity</li>
+      <li data-reveal style="--d:.16s"><span>Gen 03</span>Future CAS · Agency &amp; AI</li>
+    </ol>
+  </section>
+
+  <!-- 最终画面：开场横幅 + 两行两张 -->
+  <section class="bento bento--dm" aria-label="Screenshots">
+    <figure class="bento-item d-wide">
+      <button class="ph" type="button" data-zoom="../assets/img/disease-museum/welcome.webp" data-zoom-title="Welcome to the Disease Museum" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: the opening guide">
+        <img class="art" src="../assets/img/disease-museum/welcome.webp" width="1962" height="801" alt="A golden glitching figure: “Welcome to the Disease Museum. I will guide you through three historical disease archives.”" loading="lazy" decoding="async">
+        <span class="ph-chip mono">The guide</span>
+      </button>
+    </figure>
+    <figure class="bento-item">
+      <button class="ph" type="button" data-zoom="../assets/img/disease-museum/door.webp" data-zoom-title="Family Rule #1 — Protect the family first" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: the cottage door">
+        <img class="art" src="../assets/img/disease-museum/door.webp" width="1672" height="941" alt="A wooden cottage door: “My family members are sick, and we have no food, please help us.” Family Rule #1: Protect the family first." loading="lazy" decoding="async">
+        <span class="ph-chip mono">Gen 01<span class="chip-name"> · Black Death</span></span>
+      </button>
+    </figure>
+    <figure class="bento-item">
+      <button class="ph" type="button" data-zoom="../assets/img/disease-museum/kit.webp" data-zoom-title="Family first aid kit" data-cursor="Zoom" data-reveal="clip" style="--d:.06s" aria-label="Enlarge: the family first aid kit">
+        <img class="art" src="../assets/img/disease-museum/kit.webp" width="1523" height="1032" alt="A metal first aid kit on a plinth inside the museum, with an examine prompt" loading="lazy" decoding="async">
+        <span class="ph-chip mono">Inherited object</span>
+      </button>
+    </figure>
+    <figure class="bento-item">
+      <button class="ph" type="button" data-zoom="../assets/img/disease-museum/holo.webp" data-zoom-title="Future CAS — the disease scan" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: the disease scan">
+        <img class="art" src="../assets/img/disease-museum/holo.webp" width="1854" height="848" alt="Two holographic blue figures beside a scanner in a futuristic clinic" loading="lazy" decoding="async">
+        <span class="ph-chip mono">Gen 03<span class="chip-name"> · Future CAS</span></span>
+      </button>
+    </figure>
+    <figure class="bento-item">
+      <button class="ph" type="button" data-zoom="../assets/img/disease-museum/rules.webp" data-zoom-title="Final recap — three family rules" data-cursor="Zoom" data-reveal="clip" style="--d:.06s" aria-label="Enlarge: the final recap">
+        <img class="art" src="../assets/img/disease-museum/rules.webp" width="1672" height="941" alt="A wall of screens listing three family rules: help others, even in dangerous times; help others, even at your own risk; think before asking AI" loading="lazy" decoding="async">
+        <span class="ph-chip mono">Three family rules</span>
+      </button>
+    </figure>
+  </section>
+
+  <!-- 视频：放在最下面（压缩版，原片在 museum-video/11月8日.mov） -->
+  <section class="pj-video" id="video">
+    <p class="mono pj-video-label" data-reveal><span>Film</span><span class="dim">2:28</span></p>
+    <video src="../assets/video/disease-museum.mp4" poster="../assets/video/disease-museum-poster.webp" controls playsinline preload="metadata" data-reveal></video>
+  </section>
+
+  <a class="p-next" href="afterdream.html" data-cursor="Next">
+    <div class="bg"><img class="art" src="../assets/img/afterdream/cover.webp" alt="" loading="lazy"></div>
+    <span class="mono">Next project</span>
+    <h2>After<em>Dream</em></h2>
+  </a>
+
+</main>
+
+<footer class="footer mono">
+  <span>© <span data-year>2026</span> Yanchen Guo</span>
+  <a href="../#work">← All work</a>
+  <a href="#top" data-magnetic="0.3">Back to top ↑</a>
+</footer>
+
+</body>
+</html>

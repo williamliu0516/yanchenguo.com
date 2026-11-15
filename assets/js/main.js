@@ -11,18 +11,19 @@
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-  /* ---------------- Smooth scroll ---------------- */
+  /* ---------------- Smooth scroll (wheel inertia) ----------------
+     lerp = how much of the remaining distance is covered each frame:
+     higher follows the hand more closely, lower glides longer.
+     Touch screens keep their own native momentum (syncTouch off). */
   let lenis = null;
   if (!reduce && window.Lenis) {
-    lenis = new window.Lenis({
-      duration: 1.15,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false });
+    const loop = t => { lenis.raf(t); requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
   }
 
   function scrollToTarget(el) {
-    if (lenis) lenis.scrollTo(el, { duration: 1.6 });
+    if (lenis) lenis.scrollTo(el, { duration: 1.2 });
     else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   }
 
@@ -95,8 +96,8 @@
   });
 
   /* ---------------- Cursor ---------------- */
+  // The dot sits exactly under the pointer (no easing), so it never lags.
   let cursor = null;
-  const cur = { x: innerWidth / 2, y: innerHeight / 2, tx: innerWidth / 2, ty: innerHeight / 2 };
   if (finePointer) {
     cursor = document.createElement('div');
     cursor.className = 'cursor';
@@ -105,13 +106,16 @@
     document.body.appendChild(cursor);
     const label = cursor.querySelector('.cursor-label');
 
+    let cx = 0, cy = 0, queued = false;
+    const place = () => {
+      queued = false;
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+    };
     addEventListener('pointermove', e => {
-      cur.tx = e.clientX;
-      cur.ty = e.clientY;
-      if (!root.classList.contains('has-cursor')) {
-        cur.x = cur.tx; cur.y = cur.ty;
-        root.classList.add('has-cursor');
-      }
+      cx = e.clientX;
+      cy = e.clientY;
+      if (!queued) { queued = true; requestAnimationFrame(place); }
+      if (!root.classList.contains('has-cursor')) root.classList.add('has-cursor');
     }, { passive: true });
 
     document.addEventListener('pointerout', e => { if (!e.relatedTarget) root.classList.remove('has-cursor'); });
@@ -161,11 +165,11 @@
   /* ---------------- Scroll-linked effects ---------------- */
   const parallax = $$('[data-parallax]').map(el => ({ el, k: parseFloat(el.dataset.parallax) || 0.1 }));
   const expanders = $$('[data-expand]');
+  const progress = document.querySelector('[data-progress]');
   let vh = innerHeight;
 
-  addEventListener('resize', () => { vh = innerHeight; }, { passive: true });
-
   function updateScroll() {
+    scrollQueued = false;
     if (!reduce) {
       for (const { el, k } of parallax) {
         const r = el.parentElement.getBoundingClientRect();
@@ -179,6 +183,11 @@
         const p = clamp(1 - r.top / vh, 0, 1);
         el.style.setProperty('--p', p.toFixed(3));
       }
+    }
+
+    if (progress) {
+      const max = document.documentElement.scrollHeight - vh;
+      progress.style.setProperty('--progress', max > 0 ? clamp(scrollY / max, 0, 1).toFixed(4) : 0);
     }
 
     for (const s of scrubs) {
@@ -195,20 +204,12 @@
     }
   }
 
-  /* ---------------- Main loop ---------------- */
-  function frame(now) {
-    if (lenis) lenis.raf(now);
-    updateScroll();
-
-    if (cursor) {
-      cur.x += (cur.tx - cur.x) * 0.22;
-      cur.y += (cur.ty - cur.y) * 0.22;
-      cursor.style.transform = `translate3d(${cur.x.toFixed(1)}px, ${cur.y.toFixed(1)}px, 0)`;
-    }
-
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
+  // Work only when the page actually scrolls — no loop running while idle.
+  let scrollQueued = false;
+  const queueScroll = () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(updateScroll); } };
+  addEventListener('scroll', queueScroll, { passive: true });
+  addEventListener('resize', () => { vh = innerHeight; queueScroll(); }, { passive: true });
+  queueScroll();
 
   /* ---------------- Links: in-page scroll & page transitions ---------------- */
   const samePage = url => url.origin === location.origin &&
@@ -240,6 +241,113 @@
   if (location.hash) {
     const target = document.querySelector(location.hash);
     if (target) setTimeout(() => scrollToTarget(target), 300);
+  }
+
+  /* ---------------- Lightbox: enlarge project pages ---------------- */
+  const zoomables = $$('[data-zoom]');
+  if (zoomables.length) {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Page viewer');
+    lb.innerHTML = `
+      <div class="lb-scroll" data-lenis-prevent><img alt="" data-cursor="Zoom"></div>
+      <button class="lb-close mono" type="button">Close ✕</button>
+      <div class="lb-bar mono">
+        <span class="lb-count"></span>
+        <span class="lb-title"></span>
+        <button type="button" data-lb="zoom">Zoom +</button>
+        <button type="button" data-lb="prev" aria-label="Previous page">←</button>
+        <button type="button" data-lb="next" aria-label="Next page">→</button>
+      </div>`;
+    document.body.appendChild(lb);
+
+    const scroller = lb.querySelector('.lb-scroll');
+    const img = scroller.querySelector('img');
+    const count = lb.querySelector('.lb-count');
+    const title = lb.querySelector('.lb-title');
+    const zoomBtn = lb.querySelector('[data-lb="zoom"]');
+    const cursorLabel = document.querySelector('.cursor-label');
+    let index = -1;
+    let opener = null;
+
+    const setZoom = (on, px, py) => {
+      // keep the point that was clicked under the pointer
+      const r = img.getBoundingClientRect();
+      const fx = px == null ? 0.5 : clamp((px - r.left) / r.width, 0, 1);
+      const fy = py == null ? 0.5 : clamp((py - r.top) / r.height, 0, 1);
+      lb.classList.toggle('is-zoomed', on);
+      zoomBtn.textContent = on ? 'Fit −' : 'Zoom +';
+      img.dataset.cursor = on ? 'Fit' : 'Zoom';
+      if (cursorLabel && cursor && cursor.classList.contains('is-view')) cursorLabel.textContent = img.dataset.cursor;
+      if (on) {
+        const nr = img.getBoundingClientRect();
+        scroller.scrollLeft = fx * nr.width - (px ?? innerWidth / 2);
+        scroller.scrollTop = fy * nr.height - (py ?? innerHeight / 2);
+      } else {
+        scroller.scrollTop = 0;
+        scroller.scrollLeft = 0;
+      }
+    };
+
+    const show = i => {
+      index = (i + zoomables.length) % zoomables.length;
+      const el = zoomables[index];
+      img.src = el.dataset.zoom;
+      img.alt = el.querySelector('img')?.alt || '';
+      count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(zoomables.length).padStart(2, '0')}`;
+      title.textContent = el.dataset.zoomTitle || '';
+      setZoom(false);
+    };
+
+    const open = i => {
+      opener = document.activeElement;
+      show(i);
+      lb.classList.add('is-open');
+      if (lenis) lenis.stop();
+      document.documentElement.style.overflow = 'hidden';
+      lb.querySelector('.lb-close').focus({ preventScroll: true });
+    };
+
+    const close = () => {
+      lb.classList.remove('is-open', 'is-zoomed');
+      document.documentElement.style.overflow = '';
+      if (lenis) lenis.start();
+      // land on the page that was last viewed
+      const el = zoomables[index];
+      if (el && el !== opener) {
+        const off = -Math.max(0, (innerHeight - el.offsetHeight) / 2);
+        if (lenis) lenis.scrollTo(el, { immediate: true, offset: off });
+        else el.scrollIntoView({ block: 'center' });
+      }
+      if (el) el.focus({ preventScroll: true });
+    };
+
+    zoomables.forEach((el, i) => el.addEventListener('click', () => open(i)));
+
+    img.addEventListener('click', e => setZoom(!lb.classList.contains('is-zoomed'), e.clientX, e.clientY));
+    scroller.addEventListener('click', e => { if (e.target === scroller && !lb.classList.contains('is-zoomed')) close(); });
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    zoomBtn.addEventListener('click', () => setZoom(!lb.classList.contains('is-zoomed')));
+    lb.querySelector('[data-lb="prev"]').addEventListener('click', () => show(index - 1));
+    lb.querySelector('[data-lb="next"]').addEventListener('click', () => show(index + 1));
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight' && !lb.classList.contains('is-zoomed')) show(index + 1);
+      else if (e.key === 'ArrowLeft' && !lb.classList.contains('is-zoomed')) show(index - 1);
+      else if (e.key === 'z' || e.key === '+' || e.key === '=') setZoom(true);
+      else if (e.key === '-') setZoom(false);
+      else if (e.key === 'Tab') {
+        // keep focus inside the viewer
+        const f = $$('button', lb);
+        const at = f.indexOf(document.activeElement);
+        if (e.shiftKey && at <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && at === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
+    });
   }
 
   /* ---------------- Small things ---------------- */

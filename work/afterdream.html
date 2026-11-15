@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AfterDream — Yanchen Guo</title>
+  <meta name="description" content="AfterDream — a bedside companion for remembering dreams. A product design project by Yanchen Guo.">
+  <meta name="theme-color" content="#eeeaf9">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AfterDream — Yanchen Guo">
+  <meta property="og:description" content="A Bedside Companion for Remembering Dreams">
+  <meta property="og:image" content="https://yanchenguo.com/assets/img/afterdream/cover.webp">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Unbounded:wght@400;500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="project theme-ad">
+
+<div class="curtain" aria-hidden="true"></div>
+<div class="pj-progress" aria-hidden="true"><span data-progress></span></div>
+
+<header class="nav">
+  <a class="nav-logo" href="../" data-magnetic="0.2">Yanchen Guo</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="../#work" data-magnetic="0.3"><span>01</span>Work</a>
+    <a href="../#about" data-magnetic="0.3"><span>02</span>About</a>
+    <a href="../#contact" data-magnetic="0.3"><span>03</span>Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 首屏：左文字，右边云朵录音机照片往左渐隐 -->
+  <section class="pc-hero pc-hero--split">
+    <div class="pc-hero-media" aria-hidden="true">
+      <div class="parallax" data-parallax="0.1"><img class="art" src="../assets/img/afterdream/hero.webp" width="1642" height="2048" alt="" style="object-position:50% 62%" fetchpriority="high"></div>
+    </div>
+
+    <div class="pc-hero-inner">
+      <p class="mono pj-kicker" data-reveal style="--d:.3s">Project 04 &nbsp;/&nbsp; Product design · HCI · UI</p>
+      <h1 class="pj-title" data-split style="--d:.4s">After<em>Dream</em></h1>
+
+      <div class="pj-intro">
+        <p class="pj-lede" data-reveal style="--d:.8s">A Bedside Companion for Remembering Dreams</p>
+        <p class="pj-summary" data-reveal style="--d:.9s">AfterDream captures fading dream fragments through bedside voice input. AI helps shape remembered details into short, editable dream scenes, while the original recording stays intact. A private archive makes dreams easy to revisit and reflect on.</p>
+      </div>
+
+      <dl class="pj-facts mono">
+        <div data-reveal style="--d:1s"><dt>Device</dt><dd>Cloud-shaped recorder · One-touch capture</dd></div>
+        <div data-reveal style="--d:1.05s"><dt>Capture</dt><dd>Bedside voice input</dd></div>
+        <div data-reveal style="--d:1.1s"><dt>Scenes</dt><dd>AI-assisted, always editable</dd></div>
+        <div data-reveal style="--d:1.15s"><dt>App</dt><dd>Private dream archive</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 三个功能：照片/抠图 + 作品集原文 -->
+  <section class="ad-features" aria-label="How it works">
+    <figure class="ad-card">
+      <button class="ad-card-media" type="button" data-zoom="../assets/img/afterdream/cloud.webp" data-zoom-title="Voice capture &amp; sync" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: the recorder">
+        <img class="art" src="../assets/img/afterdream/cloud.webp" width="735" height="550" alt="The cloud-shaped recorder on a bedside table, its screen dark" loading="lazy" decoding="async">
+      </button>
+      <figcaption data-reveal>
+        <span class="mono">01</span>
+        <h3>Voice capture &amp; sync</h3>
+        <p>A gentle waking ritual. Describe scenes, people and feelings in your own words. Incomplete memories are welcome.</p>
+      </figcaption>
+    </figure>
+    <figure class="ad-card">
+      <button class="ad-card-media ad-card-media--soft" type="button" data-zoom="../assets/img/afterdream/hand.webp" data-zoom-title="Revisit &amp; reflect" data-cursor="Zoom" data-reveal="clip" style="--d:.06s" aria-label="Enlarge: the app in hand">
+        <img class="art art--cutout" src="../assets/img/afterdream/hand.webp" width="1086" height="1448" alt="A hand holding a phone showing the Discover screen of the AfterDream app" loading="lazy" decoding="async">
+      </button>
+      <figcaption data-reveal style="--d:.06s">
+        <span class="mono">02</span>
+        <h3>Revisit &amp; reflect</h3>
+        <p>Keep the voice. Review the scene. Make it your own. Find saved dreams by mood, theme or keyword.</p>
+      </figcaption>
+    </figure>
+    <figure class="ad-card">
+      <button class="ad-card-media ad-card-media--night" type="button" data-zoom="../assets/img/afterdream/phones/p6.webp" data-zoom-title="Dream Archive" data-cursor="Zoom" data-reveal="clip" style="--d:.12s" aria-label="Enlarge: Dream Archive">
+        <img class="art art--cutout" src="../assets/img/afterdream/phones/p6.webp" width="900" height="929" alt="The Dream Archive screen, showing The Ocean Above the City with its AI dream scene" loading="lazy" decoding="async">
+      </button>
+      <figcaption data-reveal style="--d:.12s">
+        <span class="mono">03</span>
+        <h3>You stay in control</h3>
+        <p>AI scenes are editable interpretations, guided by your own memories. The original recording always stays intact.</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- App 画面：Figma 里的完整截图，套 CSS 手机外框；背景是作品集里的玫瑰插画 -->
+  <section class="ad-app" aria-label="The app">
+    <div class="ad-app-bg" aria-hidden="true"><img src="../assets/img/afterdream/roses.webp" width="1440" height="1080" alt="" loading="lazy" decoding="async"></div>
+    <header class="ad-app-head">
+      <p class="mono pj-kicker" data-reveal>The app</p>
+      <h2 class="ad-app-title" data-reveal>A dream, revisited.</h2>
+      <p class="ad-app-text" data-reveal>Revisit scenes shaped by your own words. The Dream Archive lets you record and revisit your inner world; Discover and Insights let you explore shared dreams and understand your patterns.</p>
+    </header>
+    <div class="ad-phones">
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s1.webp" data-zoom-title="Dream Archive" data-cursor="Zoom" data-reveal aria-label="Enlarge: Dream Archive"><img src="../assets/img/afterdream/screens/s1.webp" width="900" height="1957" alt="Dream Archive: search, emotion filters and recorder status above saved dreams" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Dream Archive</figcaption>
+      </figure>
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s2.webp" data-zoom-title="Dream playback" data-cursor="Zoom" data-reveal style="--d:0.06s" aria-label="Enlarge: Dream playback"><img src="../assets/img/afterdream/screens/s2.webp" width="900" height="1957" alt="Dream playback: The Ocean Above the City, with the original recording and a dream summary" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Dream playback</figcaption>
+      </figure>
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s3.webp" data-zoom-title="Discover" data-cursor="Zoom" data-reveal style="--d:0.12s" aria-label="Enlarge: Discover"><img src="../assets/img/afterdream/screens/s3.webp" width="900" height="1957" alt="Discover: today’s featured dream, We Grew Wings at Midnight" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Discover</figcaption>
+      </figure>
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s4.webp" data-zoom-title="Explore dreams" data-cursor="Zoom" data-reveal style="--d:0.18s" aria-label="Enlarge: Explore dreams"><img src="../assets/img/afterdream/screens/s4.webp" width="900" height="1957" alt="Explore Dreams categories and Trending Dreams" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Explore dreams</figcaption>
+      </figure>
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s5.webp" data-zoom-title="Insights" data-cursor="Zoom" data-reveal style="--d:0.24s" aria-label="Enlarge: Insights"><img src="../assets/img/afterdream/screens/s5.webp" width="900" height="1957" alt="Insights: dream timeline, emotion trends and recurring symbols" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Insights</figcaption>
+      </figure>
+      <figure class="ad-phone">
+        <button type="button" data-zoom="../assets/img/afterdream/screens/s6.webp" data-zoom-title="Profile" data-cursor="Zoom" data-reveal style="--d:0.30s" aria-label="Enlarge: Profile"><img src="../assets/img/afterdream/screens/s6.webp" width="900" height="1957" alt="Profile: the connected Dream Recorder Mini, saved dreams, privacy and daily reminder" loading="lazy" decoding="async"></button>
+        <figcaption class="mono">Profile</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <a class="p-next" href="invisible-violence.html" data-cursor="Next">
+    <div class="bg"><img class="art" src="../assets/img/invisible-violence/cover.webp" alt="" loading="lazy"></div>
+    <span class="mono">Next project</span>
+    <h2>Invisible <em>Violence</em></h2>
+  </a>
+
+</main>
+
+<footer class="footer mono">
+  <span>© <span data-year>2026</span> Yanchen Guo</span>
+  <a href="../#work">← All work</a>
+  <a href="#top" data-magnetic="0.3">Back to top ↑</a>
+</footer>
+
+</body>
+</html>

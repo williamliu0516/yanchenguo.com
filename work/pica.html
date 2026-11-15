@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PICA — Yanchen Guo</title>
+  <meta name="description" content="PICA — A Parkour Escape Game Inside a Living Shell. A third-person game by Yanchen Guo.">
+  <meta name="theme-color" content="#ebe8f7">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PICA — Yanchen Guo">
+  <meta property="og:description" content="A Parkour Escape Game Inside a Living Shell">
+  <meta property="og:image" content="https://yanchenguo.com/assets/img/pica/cover.webp">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 2500);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="project theme-pica">
+
+<div class="curtain" aria-hidden="true"></div>
+<div class="pj-progress" aria-hidden="true"><span data-progress></span></div>
+
+<header class="nav">
+  <a class="nav-logo" href="../" data-magnetic="0.2">Yanchen Guo</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="../#work" data-magnetic="0.3"><span>01</span>Work</a>
+    <a href="../#about" data-magnetic="0.3"><span>02</span>About</a>
+    <a href="../#contact" data-magnetic="0.3"><span>03</span>Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 首屏：主图往下渐隐进页面底色，标题和简介压在渐隐处 -->
+  <section class="pc-hero">
+    <div class="pc-hero-media" aria-hidden="true">
+      <div class="parallax" data-parallax="0.12"><img class="art" src="../assets/img/pica/shots/03.webp" srcset="../assets/img/pica/shots/03.webp 1920w, ../assets/img/pica/shots/03-xl.webp 3200w" sizes="100vw" width="3840" height="2160" alt="" fetchpriority="high"></div>
+    </div>
+
+    <div class="pc-hero-inner">
+      <p class="mono pj-kicker" data-reveal style="--d:.3s">Project 02 &nbsp;/&nbsp; Third-person 3D game</p>
+      <h1 class="pj-title" data-split style="--d:.4s">PICA</h1>
+
+      <div class="pj-intro">
+        <p class="pj-lede" data-reveal style="--d:.8s">A Parkour Escape Game Inside a Living Shell</p>
+        <p class="pj-summary" data-reveal style="--d:.9s">PICA is a third-person parkour game inspired by pica, a condition involving the persistent eating of non-food substances. The game turns the idea of being drawn to a non-food object into a search for glowing fragments. The player collects fragments to unlock each level’s exit. In Levels 2 and 3, tentacles emerge from the shell walls as the player explores. The player wants to take the fragments. The shell wants to keep the player inside.</p>
+      </div>
+
+      <dl class="pj-facts mono">
+        <div data-reveal style="--d:1s"><dt>Format</dt><dd>Third-person parkour game</dd></div>
+        <div data-reveal style="--d:1.05s"><dt>Tools</dt><dd>Unity</dd></div>
+        <div data-reveal style="--d:1.1s"><dt>Levels</dt><dd>Three · Tentacles from level 2</dd></div>
+        <div data-reveal style="--d:1.15s"><dt>Play</dt><dd><a href="https://yanchenguo.itch.io/pica" target="_blank" rel="noopener">yanchenguo.itch.io/pica ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 照片：三行错落拼贴，一行一关。点开看原图 -->
+  <section class="bento" aria-label="Screenshots">
+      <figure class="bento-item b-l1a">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/01-xl.webp" data-zoom-title="Level 1 — Floating platforms" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 1 — Floating platforms">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/01.webp" srcset="../assets/img/pica/shots/01.webp 1920w, ../assets/img/pica/shots/01-xl.webp 3200w" sizes="(min-width: 900px) 64vw, 100vw" width="3840" height="2160" alt="PICA, level 1: floating platforms leading to a ring-shaped exit" style="object-position:50% 62%" loading="lazy" decoding="async"></div>
+          <span class="ph-chip mono">Level 01<span class="chip-name"> · Collecting Fragments</span></span>
+        </button>
+      </figure>
+      <figure class="bento-item b-l1b">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/02-xl.webp" data-zoom-title="Level 1 — A glowing fragment" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 1 — A glowing fragment">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/02.webp" srcset="../assets/img/pica/shots/02.webp 1920w, ../assets/img/pica/shots/02-xl.webp 3200w" sizes="(min-width: 900px) 32vw, 100vw" width="3840" height="2160" alt="PICA, level 1: an iridescent fragment floating above the platforms" style="object-position:52% 45%" loading="lazy" decoding="async"></div>
+        </button>
+      </figure>
+      <figure class="bento-item b-l2a">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/05-xl.webp" data-zoom-title="Level 2 — Tentacles" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 2 — Tentacles">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/05.webp" srcset="../assets/img/pica/shots/05.webp 1920w, ../assets/img/pica/shots/05-xl.webp 3200w" sizes="(min-width: 900px) 40vw, 100vw" width="3840" height="2160" alt="PICA, level 2: an iridescent tentacle emerging from the shell wall" style="object-position:40% 50%" loading="lazy" decoding="async"></div>
+          <span class="ph-chip mono">Level 02<span class="chip-name"> · Inside the Shell</span></span>
+        </button>
+      </figure>
+      <figure class="bento-item b-l2b">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/04-xl.webp" data-zoom-title="Level 2 — Inside the shell" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 2 — Inside the shell">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/04.webp" srcset="../assets/img/pica/shots/04.webp 1920w, ../assets/img/pica/shots/04-xl.webp 3200w" sizes="(min-width: 900px) 56vw, 100vw" width="3840" height="2160" alt="PICA, level 2: curved paths inside the shell toward the portal" style="object-position:50% 55%" loading="lazy" decoding="async"></div>
+        </button>
+      </figure>
+      <figure class="bento-item b-l3a">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/06-xl.webp" data-zoom-title="Level 3 — Entrance" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 3 — Entrance">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/06.webp" srcset="../assets/img/pica/shots/06.webp 1920w, ../assets/img/pica/shots/06-xl.webp 3200w" sizes="(min-width: 900px) 56vw, 100vw" width="3840" height="2160" alt="PICA, level 3: the entrance, with broken shell pieces floating overhead" style="object-position:50% 50%" loading="lazy" decoding="async"></div>
+          <span class="ph-chip mono">Level 03<span class="chip-name"> · The Fractured Shell</span></span>
+        </button>
+      </figure>
+      <figure class="bento-item b-l3b">
+        <button class="ph" type="button" data-zoom="../assets/img/pica/shots/07-xl.webp" data-zoom-title="Level 3 — Toward the final portal" data-cursor="Zoom" data-reveal="clip" aria-label="Enlarge: Level 3 — Toward the final portal">
+          <div class="parallax"><img class="art" src="../assets/img/pica/shots/07.webp" srcset="../assets/img/pica/shots/07.webp 1920w, ../assets/img/pica/shots/07-xl.webp 3200w" sizes="(min-width: 900px) 40vw, 100vw" width="3840" height="2160" alt="PICA, level 3: a perforated bridge over water leading to the final portal" style="object-position:50% 50%" loading="lazy" decoding="async"></div>
+        </button>
+      </figure>
+  </section>
+
+  <!-- 视频：放在最下面（压缩版，原片在 pica-video/PICA_Solace_1080p.mp4） -->
+  <section class="pj-video" id="video">
+    <p class="mono pj-video-label" data-reveal><span>Film</span><span class="dim">1:30</span></p>
+    <video src="../assets/video/pica.mp4" poster="../assets/video/pica-poster.webp" controls playsinline preload="metadata" data-reveal></video>
+    <a class="pj-play" href="https://yanchenguo.itch.io/pica" target="_blank" rel="noopener" data-reveal>
+      <span class="mono">Play the game</span>
+      <span class="pj-play-url">yanchenguo.itch.io/pica <span class="arrow">↗</span></span>
+    </a>
+  </section>
+
+  <a class="p-next" href="disease-museum.html" data-cursor="Next">
+    <div class="bg"><img class="art" src="../assets/img/disease-museum/cover.webp" alt="" loading="lazy"></div>
+    <span class="mono">Next project</span>
+    <h2>Disease <em>Museum</em></h2>
+  </a>
+
+</main>
+
+<footer class="footer mono">
+  <span>© <span data-year>2026</span> Yanchen Guo</span>
+  <a href="../#work">← All work</a>
+  <a href="#top" data-magnetic="0.3">Back to top ↑</a>
+</footer>
+
+</body>
+</html>
