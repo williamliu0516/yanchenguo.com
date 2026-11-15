@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yanchen Guo — Interactive Design</title>
-  <!-- TODO(内容): 一句话介绍，用于搜索结果和分享卡片 -->
-  <meta name="description" content="Yanchen Guo — interactive design portfolio.">
+  <meta name="description" content="Yanchen Guo is an interactive designer and digital artist in New York, making installations, games, VR and product experiences.">
   <meta name="theme-color" content="#0a0a09">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Yanchen Guo — Interactive Design">
-  <meta property="og:description" content="Yanchen Guo — interactive design portfolio.">
+  <meta property="og:description" content="Yanchen Guo is an interactive designer and digital artist in New York, making installations, games, VR and product experiences.">
   <meta property="og:url" content="https://yanchenguo.com/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -53,8 +52,7 @@
       <div class="hero-bottom">
         <h1 class="hero-title" data-split style="--d:.35s">Yanchen <em>Guo</em></h1>
         <div class="hero-side">
-          <!-- TODO(内容): 一句话介绍 -->
-          <p class="hero-intro" data-reveal style="--d:1.15s">[Placeholder] One line on what she designs, and for whom.</p>
+          <p class="hero-intro" data-reveal style="--d:1.15s">Installations, games and products that notice you, and answer back.</p>
           <a class="scroll-cue mono" href="#work" data-reveal style="--d:1.25s"><span class="cue-line"></span>View work</a>
         </div>
       </div>
@@ -135,25 +133,23 @@
   <!-- ============ About ============ -->
   <section class="about" id="about">
     <div class="about-grid">
-      <!-- TODO(内容): 头像/工作照，换成 <img class="art" src="assets/img/portrait.jpg" alt="Yanchen Guo"> -->
-      <div class="about-portrait" data-reveal="clip">
-        <div class="parallax" data-parallax="0.08"><div class="art art-portrait"></div></div>
-        <span class="ph-tag mono">Portrait · 4:5</span>
+      <!-- 人像不裁切：框的比例就是照片的比例，没有视差放大。换照片时把 aspect-ratio 和 width/height 改成新照片的宽高 -->
+      <div class="about-portrait" data-reveal="clip" style="aspect-ratio:1000 / 1237">
+        <img class="art" src="assets/img/portrait.webp" width="1000" height="1237" alt="Yanchen Guo" loading="lazy" decoding="async">
       </div>
 
       <div class="about-body">
         <p class="mono label" data-reveal>About</p>
-        <!-- TODO(内容): 她的设计理念，一两句话（滚动时会逐词点亮） -->
+        <!-- 设计理念，一两句话（滚动时会逐词点亮） -->
         <p class="about-lead" data-scrub>I design interactions the way light behaves on a surface — quiet until someone arrives, then precise, responsive, and a little bit surprising.</p>
-        <!-- TODO(内容): 个人简介 -->
-        <p class="about-bio" data-reveal>[Placeholder] A few sentences about who she is, where she comes from, and what draws her to interactive design.</p>
+        <!-- 内容来自简历 personal-info/Resume Yanchen Guo-V1.docx -->
+        <p class="about-bio" data-reveal>I’m an interactive designer and digital artist based in New York, studying Digital Arts (Art &amp; Technology) at Pratt Institute. I work across physical computing, creative coding and embodied technology — kinetic installations, VR, games and AI-assisted products — and I’m most interested in the moment a piece responds to the person in front of it.</p>
 
-        <!-- TODO(内容): 不需要的整行 <div> 删掉 -->
         <dl class="about-list">
-          <div data-reveal><dt class="mono">Education</dt><dd>[Program] — [School], [Year]</dd></div>
-          <div data-reveal><dt class="mono">Experience</dt><dd>[Studio / Company] — [Role], [Year]</dd></div>
-          <div data-reveal><dt class="mono">Recognition</dt><dd>[Award / Exhibition], [Year]</dd></div>
-          <div data-reveal><dt class="mono">Tools</dt><dd>[Figma, TouchDesigner, p5.js, Unity …]</dd></div>
+          <div data-reveal><dt class="mono">Education</dt><dd>BFA Digital Arts (Art &amp; Technology) — Pratt Institute, 2027 (expected)</dd></div>
+          <div data-reveal><dt class="mono">Experience</dt><dd>Interaction Design Intern — Innovation Ai, 2026</dd></div>
+          <div data-reveal><dt class="mono">Recognition</dt><dd><i>Let Something Go</i> — selected for the Quadrant International Art Association exhibition, 2025<br>President’s List — Pratt Institute, 2023–2026</dd></div>
+          <div data-reveal><dt class="mono">Tools</dt><dd>TouchDesigner, Unity, Blender, Figma, Photoshop, Arduino, Python, JavaScript</dd></div>
         </dl>
       </div>
     </div>
@@ -164,14 +160,8 @@
     <p class="mono label" data-reveal>Contact</p>
     <h2 class="contact-title" data-split>Let’s make <em>something</em> move.</h2>
     <div class="contact-row">
-      <!-- TODO(内容): 换成真实邮箱（href 和文字都要改） -->
-      <a class="contact-email" href="mailto:hello@yanchenguo.com" data-reveal>hello@yanchenguo.com <span class="arrow">↗</span></a>
-      <!-- TODO(内容): 换成真实链接，不需要的整行 <li> 删掉 -->
-      <ul class="contact-social mono" data-reveal style="--d:.1s">
-        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
-      </ul>
+      <a class="contact-email" href="mailto:yanchenguo55@gmail.com" data-reveal>yanchenguo55@gmail.com <span class="arrow">↗</span></a>
+      <!-- 社交链接：有了再加，格式 <ul class="contact-social mono" data-reveal><li><a href="…" target="_blank" rel="noopener">Instagram</a></li></ul> -->
     </div>
   </section>
 

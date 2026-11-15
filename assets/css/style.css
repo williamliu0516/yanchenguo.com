@@ -658,6 +658,8 @@ body::after {
   background: var(--ink-2);
 }
 
+.about-portrait .art { object-fit: contain; transform: none; }
+
 .about-body { grid-column: 6 / span 7; padding-top: 4px; }
 
 .about-lead {
