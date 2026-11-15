@@ -13,7 +13,9 @@
 
   --serif: "Instrument Serif", "Songti SC", "Noto Serif SC", Georgia, serif;
   --sans: "Inter Tight", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* small text: a soft italic serif in normal case (was tracked uppercase mono) */
+  --mono: "Instrument Serif", "Songti SC", Georgia, serif;
+  --brand: "Syne", "Inter Tight", system-ui, sans-serif;
 
   --gutter: clamp(16px, 3.4vw, 48px);
   --gap: clamp(16px, 2vw, 28px);
@@ -49,10 +51,10 @@ em { font-style: italic; }
 
 .mono {
   font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
 .dim { color: var(--muted); }
@@ -120,18 +122,18 @@ body::after {
 }
 
 .nav-logo {
-  font-family: var(--serif);
-  font-size: 22px;
-  letter-spacing: 0.01em;
+  font-family: var(--brand);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.02em;
 }
 
 .nav-links { display: flex; gap: clamp(18px, 3vw, 40px); }
 
 .nav-links a {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-style: italic;
+  font-size: 19px;
 }
 
 .nav-links a span { opacity: 0.5; margin-right: 6px; }
@@ -181,9 +183,8 @@ body::after {
 
 .cursor-label {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-style: italic;
+  font-size: 17px;
   color: var(--ink);
   opacity: 0;
   transition: opacity 0.25s;
@@ -437,7 +438,7 @@ body::after {
   left: 14px;
   bottom: 12px;
   z-index: 3;
-  font-size: 10px;
+  font-size: 15px;
   color: rgba(236, 231, 221, 0.62);
 }
 
@@ -674,6 +675,9 @@ body::after {
   margin: 0 0 40px;
   color: var(--muted);
 }
+
+.about-bio p { margin: 0 0 1em; }
+.about-bio p:last-child { margin-bottom: 0; }
 
 .about-list { margin: 0; }
 
@@ -1004,7 +1008,7 @@ body::after {
 }
 
 .pj-facts dt { color: var(--muted); margin-bottom: 6px; }
-.pj-facts dd { margin: 0; text-transform: none; letter-spacing: 0.02em; font-size: 12px; }
+.pj-facts dd { margin: 0; font-family: var(--sans); font-style: normal; font-size: 15px; line-height: 1.45; }
 .pj-facts a { border-bottom: 1px solid var(--faint); transition: border-color 0.3s; }
 .pj-facts a:hover { border-color: currentColor; }
 
@@ -1178,7 +1182,7 @@ body::after {
   border-radius: 999px;
   background: color-mix(in srgb, var(--ink) 80%, transparent);
   color: var(--paper);
-  font-size: 10px;
+  font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -1283,8 +1287,8 @@ body::after {
   margin: 18px 0 0;
   padding: 0;
   list-style: none;
-  font-size: 11px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.35;
   text-align: center;
 }
 
@@ -1332,7 +1336,7 @@ body::after {
 .ad-card-media--night .art--cutout { padding: 6%; object-position: 50% 50%; }
 
 .ad-card figcaption { padding: 20px 4px 0; }
-.ad-card figcaption .mono { color: rgb(var(--accent)); font-size: 11px; }
+.ad-card figcaption .mono { color: rgb(var(--accent)); }
 
 .ad-card h3 {
   margin: 10px 0 8px;
@@ -1407,7 +1411,7 @@ body::after {
 
 .ad-phone img { display: block; width: 100%; height: auto; transition: transform 1.2s var(--ease); }
 .ad-phone button:hover img { transform: scale(1.04); }
-.ad-phone figcaption { margin-top: 12px; color: rgba(239, 234, 255, 0.6); font-size: 10px; text-align: center; }
+.ad-phone figcaption { margin-top: 12px; color: rgba(239, 234, 255, 0.6); font-size: 16px; text-align: center; }
 
 .pj-video {
   max-width: calc(1200px + 2 * var(--gutter));
@@ -1713,6 +1717,53 @@ body.theme-ad::before {
   font-style: italic;
   font-size: clamp(120px, 26vw, 360px);
   line-height: 0.8;
+}
+
+/* ==========================================================================
+   Home (and 404) — Night: deep indigo, the silk light turned violet,
+   a wide display face (Syne) set against a soft italic serif.
+   ========================================================================== */
+
+.home {
+  color-scheme: dark;
+  --ink: #0c0a22;
+  --ink-2: #171441;
+  --paper: #eeeaff;
+  --muted: rgba(238, 234, 255, 0.6);
+  --faint: rgba(238, 234, 255, 0.14);
+  --glow: #b9a6ff;
+  --cursor: #eeeaff;
+  background: #0c0a22;
+}
+.home ::selection { background: #b9a6ff; color: #0c0a22; }
+.home .cursor.is-view .cursor-ball { background: #b9a6ff; }
+.home .cursor-label { color: #0c0a22; }
+
+.home .hero { background: radial-gradient(60% 50% at 72% 32%, rgba(140, 110, 255, 0.22), transparent 70%), var(--ink); }
+.home .hero-light { filter: hue-rotate(205deg) saturate(2.4) brightness(1.15); }
+.home .hero-inner { z-index: 1; }
+.home .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; pointer-events: none; background: linear-gradient(180deg, transparent, var(--ink)); }
+.home .hero-title { font-family: var(--brand); font-weight: 700; font-size: clamp(56px, 9.6vw, 170px); line-height: 0.9; letter-spacing: -0.045em; }
+.home .hero-title em { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; color: #b9a6ff; }
+.home .hero-intro { font-family: var(--serif); font-style: italic; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.25; }
+
+.home .section-title { font-family: var(--brand); font-weight: 700; letter-spacing: -0.04em; }
+.home .section-title em { font-family: var(--serif); font-weight: 400; color: #b9a6ff; }
+.home .work-media { border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(238, 234, 255, 0.08); }
+.home .work-title { font-family: var(--brand); font-weight: 600; letter-spacing: -0.03em; font-size: clamp(22px, 2vw, 30px); }
+.home .work-title::before { background: #b9a6ff; }
+.home .work-no { color: #b9a6ff; }
+
+.home .about-portrait { border-radius: 16px; }
+.home .about-lead { font-size: clamp(26px, 2.7vw, 40px); line-height: 1.12; }
+.home .contact::before { background: radial-gradient(closest-side, rgba(140, 110, 255, 0.24), transparent); }
+.home .contact-title { font-family: var(--brand); font-weight: 700; letter-spacing: -0.045em; }
+.home .contact-title em { font-family: var(--serif); font-weight: 400; color: #b9a6ff; letter-spacing: -0.02em; }
+.home .contact-email { font-style: italic; }
+.home .nf-inner h1 { font-family: var(--brand); font-style: normal; font-weight: 700; letter-spacing: -0.06em; }
+
+@media (max-width: 560px) {
+  .home .hero-title { font-size: 18vw; }
 }
 
 /* ==========================================================================

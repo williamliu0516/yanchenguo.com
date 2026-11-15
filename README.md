@@ -12,14 +12,14 @@ python3 -m http.server 8000
 ## 文件结构
 
 ```
-index.html                    首页：光影首屏 → 作品网格 → About → Contact
+index.html                    首页（夜色主题 .home）：光影首屏 → 作品网格 → About → Contact
 work/invisible-violence.html  作品 01（暗棕主题）
 work/pica.html                作品 02（浅紫主题）
 work/disease-museum.html      作品 03（深蓝主题）
 work/afterdream.html          作品 04（浅紫 + 夜蓝主题，没有视频）
 work/example.html             旧的详情页模板（新作品建议直接复制上面任意一页）
 404.html                      找不到页面
-assets/css/style.css          全部样式；作品页主题在 “Project pages” 一节（.theme-iv / .theme-dm / .theme-pica / .theme-ad）
+assets/css/style.css          全部样式；作品页主题在 “Project pages” 一节（.theme-iv / .theme-dm / .theme-pica / .theme-ad），首页和 404 在 “Home” 一节（.home）。小字统一是 Instrument Serif 斜体（--mono），名字和大标题是 Syne（--brand）
 assets/js/light.js            首屏 WebGL 光影
 assets/js/main.js             平滑滚动、揭开动画、视差、光标、页面切换、作品页放大查看器
 assets/img/<作品>/            每个作品一个文件夹
