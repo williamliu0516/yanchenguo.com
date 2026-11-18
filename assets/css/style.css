@@ -1874,3 +1874,8 @@ body.theme-ad::before {
   padding-top: 16px;
   border-top: 1px solid var(--faint);
 }
+
+/* second video on the same page (e.g. PICA walkthrough under the film) */
+.pj-video-label--next {
+  margin-top: clamp(40px, 5vw, 72px);
+}
